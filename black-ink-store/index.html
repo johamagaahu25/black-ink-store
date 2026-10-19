@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tienda de productos personalizados Black Ink Studio">
+  <title>Black Ink Studio | Tienda online</title>
+
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./js/productos.js" defer></script>
+  <script src="./js/carrito.js" defer></script>
+  <script src="./js/app.js" defer></script>
+</head>
+<body>
+  <header class="encabezado">
+    <a class="logo" href="#" aria-label="Black Ink Studio, inicio">
+      BLACK INK <span>STUDIO</span>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <a href="#catalogo">Productos</a>
+      <a href="#carrito">Mi carrito</a>
+      <a href="#pedidos">Mis pedidos</a>
+    </nav>
+
+    <a href="#carrito" class="contador-carrito">
+      Carrito <span id="contador-carrito">0</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="portada">
+      <div class="portada-contenido">
+        <p class="etiqueta">DISEÑÁ · PERSONALIZÁ · DISFRUTÁ</p>
+        <h1>Tus ideas,<br>hechas realidad.</h1>
+        <p>
+          Remeras, stickers y vinilos personalizados.
+          Elegí tus favoritos y armá tu pedido.
+        </p>
+        <a href="#catalogo" class="boton boton-principal">
+          Explorar productos
+        </a>
+      </div>
+      <div class="portada-grafico" aria-hidden="true">
+        <span>BI</span>
+        <p>MADE TO BE YOURS</p>
+      </div>
+    </section>
+
+    <section id="catalogo" class="seccion">
+      <div class="titulo-seccion">
+        <div>
+          <p class="etiqueta">NUESTRO CATÁLOGO</p>
+          <h2>Encontrá tu favorito</h2>
+        </div>
+        <span id="estado-carga" class="estado" role="status">
+          Cargando productos...
+        </span>
+      </div>
+
+      <div class="controles-catalogo">
+        <label for="buscador">Buscar productos</label>
+        <input
+          type="search"
+          id="buscador"
+          placeholder="Ej. remera, stickers..."
+        >
+
+        <label for="filtro-categoria">Categoría</label>
+        <select id="filtro-categoria">
+          <option value="todos">Todas las categorías</option>
+          <option value="Remeras">Remeras</option>
+          <option value="Stickers">Stickers</option>
+          <option value="Vinilos">Vinilos</option>
+        </select>
+      </div>
+
+      <div id="catalogo-productos" class="grilla-productos">
+        <p class="mensaje-vacio">Cargando catálogo...</p>
+      </div>
+    </section>
+
+    <section id="carrito" class="seccion seccion-carrito">
+      <div class="titulo-seccion">
+        <div>
+          <p class="etiqueta">TU SELECCIÓN</p>
+          <h2>Carrito de compras</h2>
+        </div>
+      </div>
+
+      <div id="contenido-carrito">
+        <p class="mensaje-vacio">Tu carrito está vacío.</p>
+      </div>
+
+      <div class="acciones-carrito">
+        <button id="vaciar-carrito" class="boton boton-secundario" type="button">
+          Vaciar carrito
+        </button>
+      </div>
+
+      <form id="formulario-pedido" class="formulario-pedido">
+        <h3>Datos del pedido</h3>
+
+        <div class="campos-formulario">
+          <div>
+            <label for="nombre-cliente">Nombre y apellido</label>
+            <input
+              id="nombre-cliente"
+              name="nombre"
+              type="text"
+              required
+              maxlength="80"
+              placeholder="Tu nombre"
+            >
+          </div>
+
+          <div>
+            <label for="email-cliente">Correo electrónico</label>
+            <input
+              id="email-cliente"
+              name="email"
+              type="email"
+              required
+              maxlength="120"
+              placeholder="tu@email.com"
+            >
+          </div>
+        </div>
+
+        <label for="metodo-entrega">Método de entrega</label>
+        <select id="metodo-entrega" name="entrega" required>
+          <option value="Retiro a coordinar">Retiro a coordinar</option>
+          <option value="Envío a coordinar">Envío a coordinar</option>
+        </select>
+
+        <div class="resumen-total">
+          <span>Total del pedido</span>
+          <strong id="total-carrito">$ 0</strong>
+        </div>
+
+        <button class="boton boton-principal boton-confirmar" type="submit">
+          Confirmar pedido
+        </button>
+        <p class="nota">
+          Simulación académica: no se procesan pagos reales.
+        </p>
+      </form>
+    </section>
+
+    <section id="pedidos" class="seccion">
+      <div class="titulo-seccion">
+        <div>
+          <p class="etiqueta">TUS COMPRAS</p>
+          <h2>Historial de pedidos</h2>
+        </div>
+      </div>
+
+      <div id="historial-pedidos">
+        <p class="mensaje-vacio">Todavía no tenés pedidos confirmados.</p>
+      </div>
+
+      <button id="borrar-historial" class="boton boton-secundario" type="button">
+        Borrar historial
+      </button>
+    </section>
+  </main>
+
+  <footer class="pie-pagina">
+    <a class="logo" href="#">BLACK INK <span>STUDIO</span></a>
+    <p>Productos personalizados con tu estilo.</p>
+    <p>Proyecto final de JavaScript</p>
+  </footer>
+</body>
+</html>
